@@ -16,20 +16,25 @@ ZombieConductor.prototype = Object.create(Enemigo.prototype);
 ZombieConductor.prototype.constructor = ZombieConductor;
 
 /* Completar metodos para el movimiento y el ataque */
+ZombieConductor.prototype.atacarFull = function(jugador){
+  jugador.perderVidas(5);
+}
+
 
 ZombieConductor.prototype.mover = function() {
   /* Los movimientos estan basados en un numero aleatorio
   La direccion horizontal es siempre la misma y va ondulando verticalmente.
   Esto hasta llegar a sus limites, donde se invierte su direccion horizontal */
  // console.log('holaconductor');
-  if (Math.random() < 0.5) {
+ 
     this.x -= this.velocidad;
     this.y -= this.velocidad;
-  } else {
+  
     //Sino, hace otro movimiento
     this.y += this.velocidad;
     this.x -= this.velocidad;
-  }
+  
+ 
 
   /* En esta parte lo que hacemos es invertir la direccion horizontal si
   toca uno de sus limites, modificando su velocidad. Si multiplicamos por -1 la
